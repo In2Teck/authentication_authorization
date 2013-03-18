@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  facebook_id: MyString
+  first_name: MyString
+  last_name: MyString
+  ticket_id: 1
+  referred_user_id: 1
+  friend_count: 1
+
+two:
+  facebook_id: MyString
+  first_name: MyString
+  last_name: MyString
+  ticket_id: 1
+  referred_user_id: 1
+  friend_count: 1

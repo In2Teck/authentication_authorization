@@ -1,0 +1,20 @@
+== Basic authorization and authentication rails app
+
+This project is intended to provide the base of a web app that can authenticate via Devise using Facebook, while using a role authorization mechanism with cancan.
+
+The purpose is to reuse and save time for developing backends. Great for a quick hackaton setup to integrate with Heroku.
+
+
+== Versions
+
+It was planned over Rails 3.2.11 (the newest & latest supported by Heroku at the time). When developed it worked over:
+
+devise 2.2.3
+omniauth-facebook 1.4.1
+cancan 1.6.9
+
+== Config
+
+Introduce your FACEBOOK app credentials in config/environments/development.rb
+and
+modify your preferences in config/initializers/devise.rb
