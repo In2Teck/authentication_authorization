@@ -4,7 +4,6 @@ This project is intended to provide the base of a web app that can authenticate 
 
 The purpose is to reuse and save time for developing backends. Great for a quick hackaton setup to integrate with Heroku.
 
-
 == Versions
 
 It was planned over Rails 3.2.11 (the newest & latest supported by Heroku at the time). When developed it worked over:
@@ -13,8 +12,29 @@ devise 2.2.3
 omniauth-facebook 1.4.1
 cancan 1.6.9
 
-== Config
+== Authentication config
 
-Introduce your FACEBOOK app credentials in config/environments/development.rb
-and
-modify your preferences in config/initializers/devise.rb
+Introduce your FACEBOOK app credentials in config/environments/development.rb and modify your preferences in config/initializers/devise.rb
+
+The User model contains the next fields:
+
+first_name, string
+last_name, string
+uid, string (to store the external id)
+created_at, datetime
+updated_at, datetime
+
+The current Devise config adds the next ones:
+
+email, string
+encrypted_password, string
+reset_password_token, string
+reset_password_sent_at, datetime
+remember_created_at, datetime
+sign_in_count, integer
+current_sign_in_at, datetime
+last_sign_in_at, datetime
+current_sing_in_ip, string
+last_sign_in_ip, string
+
+== Authorization config
