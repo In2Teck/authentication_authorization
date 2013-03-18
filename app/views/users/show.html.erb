@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Facebook:</b>
-  <%= @user.facebook_id %>
+  <b>External ID:</b>
+  <%= @user.uid %>
 </p>
 
 <p>
@@ -14,22 +14,6 @@
   <b>Last name:</b>
   <%= @user.last_name %>
 </p>
-
-<p>
-  <b>Ticket:</b>
-  <%= @user.ticket_id %>
-</p>
-
-<p>
-  <b>Referred user:</b>
-  <%= @user.referred_user_id %>
-</p>
-
-<p>
-  <b>Friend count:</b>
-  <%= @user.friend_count %>
-</p>
-
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

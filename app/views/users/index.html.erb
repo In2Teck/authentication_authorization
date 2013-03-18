@@ -2,12 +2,9 @@
 
 <table>
   <tr>
-    <th>Facebook</th>
+    <th>External ID</th>
     <th>First name</th>
     <th>Last name</th>
-    <th>Ticket</th>
-    <th>Referred user</th>
-    <th>Friend count</th>
     <th></th>
     <th></th>
     <th></th>
@@ -15,12 +12,9 @@
 
 <% @users.each do |user| %>
   <tr>
-    <td><%= user.facebook_id %></td>
+    <td><%= user.uid %></td>
     <td><%= user.first_name %></td>
     <td><%= user.last_name %></td>
-    <td><%= user.ticket_id %></td>
-    <td><%= user.referred_user_id %></td>
-    <td><%= user.friend_count %></td>
     <td><%= link_to 'Show', user %></td>
     <td><%= link_to 'Edit', edit_user_path(user) %></td>
     <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
