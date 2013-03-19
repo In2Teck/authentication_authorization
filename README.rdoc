@@ -49,6 +49,18 @@ As an example and to get the app functional right away an 'admin' role and a dum
 
 The app/models/ability.rb file considers only an admin and a guest user. The admin one has management access to all resources, while the guest user gets read access to all resources. You can define more complex rules as you scale your app in here :)
 
+== Setup
+
+1. Clone this repository
+
+2. Create and configure your facebook app in https://developers.facebook.com/apps . Make sure you check the 'website with facebook login' option and type your local server address with something like 'http://localhost:3000' so you can test.
+
+3. Edit the config/environments/development.rb file with your Facebook app key and secret.
+
+4. Configure your database and run the migrations.
+
+5. Test your Facebook signup by launching your server and entering the /signup path. Eg. http://localhost:3000/signup -> Signin with Facebook
+
 == Questions
 
 To get more custom fucntionality, please check the valuable documentation that is provided in the gems' repositories:
