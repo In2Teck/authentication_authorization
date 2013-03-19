@@ -1,5 +1,13 @@
 TorreCentenario::Application.routes.draw do
+  resources :roles
+
   devise_for :users, :controllers => {:omniauth_callbacks => "users/omniauth_callbacks"}
+
+  devise_scope :user do
+	  get 'logout', :to => "devise/sessions#destroy"
+	  get 'signin', :to => "devise/sessions#new"
+	  get 'signup', :to => "devise/registrations#new"
+  end
 
   resources :users
 

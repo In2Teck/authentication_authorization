@@ -12,7 +12,7 @@ devise 2.2.3
 omniauth-facebook 1.4.1
 cancan 1.6.9
 
-== Authentication config
+== Authentication config with devise
 
 Introduce your FACEBOOK app credentials in config/environments/development.rb and modify your preferences in config/initializers/devise.rb
 
@@ -37,4 +37,21 @@ last_sign_in_at, datetime
 current_sing_in_ip, string
 last_sign_in_ip, string
 
-== Authorization config
+Normally, your user table will need other fields so just add migrations on top of it as needed.
+
+Custom routes for signin, signup and logout are specified in config/routes.rb
+
+== Authorization config with cancan
+
+The cancan configuration is built on top of a Roles table, which has a 'has_and_belongs_to_many' relationship with the Users table.
+
+As an example and to get the app functional right away an 'admin' role and a dummy admin user was created in db/seeds.rb. Please modify this to set your default admin user.
+
+The app/models/ability.rb file considers only an admin and a guest user. The admin one has management access to all resources, while the guest user gets read access to all resources. You can define more complex rules as you scale your app in here :)
+
+== Questions
+
+To get more custom fucntionality, please check the valuable documentation that is provided in the gems' repositories:
+
+* devise - https://github.com/plataformatec/devise
+* cancan - https://github.com/ryanb/cancan
