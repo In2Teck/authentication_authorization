@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Authentication authorization : Reusable code for a generic web app that utilizes devise with facebook login &amp; cancan." />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Authentication authorization</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/tonklis/authentication_authorization">View on GitHub</a>
+
+          <h1 id="project_title">Authentication authorization</h1>
+          <h2 id="project_tagline">Reusable code for a generic web app that utilizes devise with facebook login &amp; cancan.</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/tonklis/authentication_authorization/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/tonklis/authentication_authorization/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <p>== Basic authorization and authentication rails app</p>
+
+<p>This project is intended to provide the base of a web app that can authenticate via Devise using Facebook, while using a role authorization mechanism with cancan.</p>
+
+<p>The purpose is to reuse and save time for developing backends. Great for a quick hackaton setup to integrate with Heroku.</p>
+
+<p>== Versions</p>
+
+<p>It was planned over Rails 3.2.11 (the newest &amp; latest supported by Heroku at the time). When developed it worked over:</p>
+
+<p>devise 2.2.3
+omniauth-facebook 1.4.1
+cancan 1.6.9</p>
+
+<p>== Authentication config with devise</p>
+
+<p>Introduce your FACEBOOK app credentials in config/environments/development.rb and modify your preferences in config/initializers/devise.rb</p>
+
+<p>The User model contains the next fields:</p>
+
+<p>first_name, string
+last_name, string
+uid, string (to store the external id)
+created_at, datetime
+updated_at, datetime</p>
+
+<p>The current Devise config adds the next ones:</p>
+
+<p>email, string
+encrypted_password, string
+reset_password_token, string
+reset_password_sent_at, datetime
+remember_created_at, datetime
+sign_in_count, integer
+current_sign_in_at, datetime
+last_sign_in_at, datetime
+current_sing_in_ip, string
+last_sign_in_ip, string</p>
+
+<p>Normally, your user table will need other fields so just add migrations on top of it as needed.</p>
+
+<p>Custom routes for signin, signup and logout are specified in config/routes.rb</p>
+
+<p>== Authorization config with cancan</p>
+
+<p>The cancan configuration is built on top of a Roles table, which has a 'has_and_belongs_to_many' relationship with the Users table.</p>
+
+<p>As an example and to get the app functional right away an 'admin' role and a dummy admin user was created in db/seeds.rb. Please modify this to set your default admin user.</p>
+
+<p>The app/models/ability.rb file considers only an admin and a guest user. The admin one has management access to all resources, while the guest user gets read access to all resources. You can define more complex rules as you scale your app in here :)</p>
+
+<p>== Setup</p>
+
+<ol>
+<li><p>Clone this repository</p></li>
+<li><p>Create and configure your facebook app in <a href="https://developers.facebook.com/apps">https://developers.facebook.com/apps</a> . Make sure you check the 'website with facebook login' option and type your local server address with something like 'http://localhost:3000' so you can test.</p></li>
+<li><p>Edit the config/environments/development.rb file with your Facebook app key and secret.</p></li>
+<li><p>Configure your database and run the migrations.</p></li>
+<li><p>Test your Facebook signup by launching your server and entering the /signup path. Eg. http://localhost:3000/signup -&gt; Signin with Facebook</p></li>
+</ol><p>== Questions</p>
+
+<p>To get more custom fucntionality, please check the valuable documentation that is provided in the gems' repositories:</p>
+
+<ul>
+<li>devise - <a href="https://github.com/plataformatec/devise">https://github.com/plataformatec/devise</a>
+</li>
+<li>cancan - <a href="https://github.com/ryanb/cancan">https://github.com/ryanb/cancan</a>
+</li>
+</ul>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Authentication authorization maintained by <a href="https://github.com/tonklis">tonklis</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
